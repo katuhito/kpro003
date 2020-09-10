@@ -279,31 +279,6 @@ def get_public():
     public_user = User.objects.filter(username='public').first()
     public_group = Group.objects.filter(owner=public_user).first()
     return (public_user, public_group)
-    
-
-
-
-
-
-    
-    # POST送信時の処理
-    if request.method == 'POST':
-
-        # Groupメニュー選択肢の処理
-        if request.POST['mode'] == '__groups_form__':
-            # 選択したGroup名を取得
-            sel_group = request.POST['groups']
-            # Groupを取得
-            gp = Group.objects.filter(owner=request.user).filter(title=sel_group).first()
-            # Groupに含まれるFriendを取得する
-            fds = Friend.objects.filter(owner=request.user).filter(group=gp)
-            print(Friend.objects.filter(owner=request.user))
-            # FriendのUserをリストにまとめる
-            vlist = []
-            for item in fds:
-                vlist.append(item.user.username)
-            # フォームの用意
-            groupsform = GroupSelectForm(request.user, request.POST)
-            friendsform = FriendsForm(request.user, friends=friends, vals=vlist)
+ 
 
 
