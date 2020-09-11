@@ -44,6 +44,7 @@ def index(request, page=1):
             'login_user':request.user,
             'contents':messages,
             'check_form':checkform,
+            'search_form':searchform,
         }
         return render(request, 'sns/index.html', params)
 
