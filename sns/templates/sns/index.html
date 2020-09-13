@@ -40,7 +40,7 @@
     {% for item in contents %}
     <tr><td>
         <p class="my-0">
-            {% if item.sgroup.title == 'public' %}
+            {% if item.group.title == 'public' %}
             <span class="bg-info text-light px-1">Public</span>
             {% endif %}
             {{item.content}}
@@ -64,3 +64,41 @@
      {% endfor %}   
 </table>
 
+<ul class="pagination justify-content-center">
+    {% if contents.has_previous %}
+    <li class="page-item">
+        <a class="page-link" href="javascript:sendGroupForm(1);">&laquo; first</a>
+    </li>
+    <li class="page-item">
+        <a class="page-link" href="javascript:sendGroupForm({{contents.previous_page_number}});">&laquo; prev</a>
+    </li>
+    {% else %}
+    <li class="page-item">
+        <a class="page-link">&laquo; first</a>
+    </li>
+    <li class="page-item">
+        <a class="page-link">&laquo; prev</a>
+    </li>
+    {% endif %}
+    <li class="page-item">
+        <a class="page-link">
+            {{contents.number}}/{{contents.paginator.num_pages}}
+        </a>
+    </li>
+    {% if contents.has_next %}
+    <li class="page-item">
+        <a class="page-link" href="javascript:sendGroupForm({{contents.next_page_number}});">next &raquo;</a>
+    </li>
+    <li class="page-item">
+        <a class="page-link" href="javascript:sendGroupForm({{contents.pagenator.num_pages}});">last &raquo;</a>
+    </li>
+    {% else %}
+    <li class="page-item">
+        <a class="page-link">next &raquo;</a>
+    </li>
+    <li class="page-item">
+        <a class="page-link">last &raquo;</a>
+    </li>
+    {% endif %}
+</ul>
+{% endblock %}
