@@ -27,7 +27,7 @@
 <hr>
 
 <div>
-    <form action="{% url 'index' %}" method="post" name="group_form">
+    <form action="{% url 'index' %}" method="POST" name="group_form">
         {% csrf_token %}
         {{check_form}}
         <div>

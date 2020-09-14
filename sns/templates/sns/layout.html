@@ -19,13 +19,14 @@
                     <a class="nav-link" href="{% url 'groups' %}">group</a>
                 </li>
             </ul>
-            <span>logined: <span class="h6">"{{login_user}}".</span></span>
+            <span>logined: <span class="h6">"{{login_user}}"</span></span>
         </nav>
 
         <div>{% block header %}{% endblock %}</div>
         <div class="content">{% block content %}{% endblock %}</div>
 
         <hr>
+
 
         <div class="my-3">
             <span class="font-weight-bold">
