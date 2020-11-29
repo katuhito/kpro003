@@ -8,7 +8,7 @@
     </head>
     <body class="container">
         <nav class="navbar navbar-expand navbar-light bg-light">
-            <ul class="navbar-item mr-auto">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'index' %}">top</a>
                 </li>
@@ -19,7 +19,7 @@
                     <a class="nav-link" href="{% url 'groups' %}">group</a>
                 </li>
             </ul>
-            <span>logined: <span class="h6">"{{login_user}}"</span></span>
+            <span>logined: <span class="h6">"{{login_user}}".</span></span>
         </nav>
 
         <div>{% block header %}{% endblock %}</div>
